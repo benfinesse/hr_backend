@@ -23,6 +23,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->date('dob')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('account_name')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('gender')->nullable();
             $table->string('image')->nullable();
             $table->text('address')->nullable();
             $table->boolean('active')->nullable();

@@ -34,6 +34,29 @@ class UsersTableSeeder extends Seeder
 
         Admin::create($user);
 
-        factory(User::class, 100)->create();
+        $banks = [
+            'GUARANTEE TRUST BANK',
+            'ZENITH BANK',
+            'UBA',
+            'FIRST BANK',
+            'POLARIS BANK',
+            'WEMA BANK',
+            'DIAMOND ACCESS BANK',
+        ];
+        $gender = ['M','F'];
+
+
+        $start = 100;
+        while ($start > 0){
+            factory(User::class, 1)->create(
+                [
+                    'bank' => $banks[rand(0,6)],
+                    'gender' => $gender[rand(0,1)],
+                ]
+            );
+            $start--;
+        }
+
+
     }
 }

@@ -28,6 +28,8 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'phone' => $faker->phoneNumber,
         'dob' => $faker->date('Y-m-d'),
+        'account_number' => $faker->bankAccountNumber,
+        'account_name' => $faker->firstName,
         'address' => $faker->address,
         'remember_token' => Str::random(10),
     ];

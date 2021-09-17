@@ -26,6 +26,10 @@ class User extends Authenticatable
         'dob',
         'image',
         'address',
+        'account_number',
+        'account_name',
+        'bank',
+        'gender',
     ];
 
     /**
