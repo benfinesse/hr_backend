@@ -12,18 +12,22 @@ class HomeController extends Controller
 
     public function links(){
         $headers = [
-            "auth_guard"=>env('AUTH_GUARD')
+            "Auth-Guard"=>env('AUTH_GUARD'),
+
         ];
         $data = [
             "home"=>route('home'),
             "App Token"=>[
-                "key"=>"auth_guard",
+                "key"=>"Auth-Guard",
                 "value"=>env('AUTH_GUARD'),
                 "example" => $headers
             ],
+            "User Token"=>[
+              "User-Token"=>"token from login response"
+            ],
             "Note"=>[
                 "1"=>"All request must have the application token described above on its header for it to respond else a bad request",
-                "2"=>"All secured routes must have the users token (given when login is successful) and the app token on the header for it to respond to any requests",
+                "2"=>"All secured routes must have the User-Token as part of the header request (given when login is successful) and the app token on the header for it to respond to any requests",
             ],
             "Authentication"=>[
                 "login"=>[

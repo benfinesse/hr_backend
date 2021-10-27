@@ -19,7 +19,7 @@ class Api
         $header_guard = $request->header('Auth-Guard');
 
         $auth_guard = env('AUTH_GUARD');
-        dd($auth_guard, $header_guard);
+
         if($header_guard===$auth_guard){
             return $next($request);
         }
