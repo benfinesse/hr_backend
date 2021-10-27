@@ -16,7 +16,7 @@ class Api
     public function handle($request, Closure $next)
     {
         //ensure routes are authenticated
-        $header_guard = $request->header('auth_guard');
+        $header_guard = $request->header('Auth-Guard');
 
         $auth_guard = env('AUTH_GUARD');
         dd($auth_guard, $header_guard);

@@ -17,7 +17,7 @@ class AuthGuard
      */
     public function handle($request, Closure $next)
     {
-        $uToken = $request->header('user_token');
+        $uToken = $request->header('User-Token');
 
         $user = Admin::where('token', $uToken)->where('active', true)->first();
 
