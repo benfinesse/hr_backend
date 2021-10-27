@@ -15,5 +15,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('links', 'HomeController@links')->name('links');
-Route::resource('admins', 'AdminController');
-Route::resource('users', 'UserController');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware'=>'app_api'], function (){
+
+    Route::post('login', 'API\LoginController@login');
+//    Route::post('register', 'API\RegisterController@register');
+    Route::post('start/reset', 'API\LoginController@startReset');
+    Route::post('complete/reset', 'API\LoginController@completeReset');
+
+    //authenticated endpoints routes
+    Route::group(['middleware'=>'user_auth'], function (){
+
+        Route::prefix('dashboard')->group(function () {
+            Route::resource('admins', 'AdminController');
+            Route::resource('users', 'UserController');
+        });
+    });
+
+
+});

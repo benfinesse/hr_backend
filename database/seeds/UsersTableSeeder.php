@@ -5,6 +5,7 @@ use App\Traits\General\Utility;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 
 class UsersTableSeeder extends Seeder
@@ -28,7 +29,7 @@ class UsersTableSeeder extends Seeder
             'phone'=>"08000000000",
             'active'=>true,
             'email_verified_at' => now(),
-            'password' => bcrypt('password'), // password
+            'password' => Hash::make('password'), // password
             'remember_token' => Str::random(10),
         ];
 
@@ -52,6 +53,8 @@ class UsersTableSeeder extends Seeder
                 [
                     'bank' => $banks[rand(0,6)],
                     'gender' => $gender[rand(0,1)],
+                    'token' => $this->randomName(36),
+                    'u_token_exp' => time()+172800
                 ]
             );
             $start--;

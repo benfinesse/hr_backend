@@ -29,6 +29,8 @@ class CreateUsersTable extends Migration
             $table->string('bank')->nullable();
             $table->string('gender')->nullable();
             $table->string('image')->nullable();
+            $table->string('token')->nullable();
+            $table->bigInteger('u_token_exp')->nullable();
             $table->text('address')->nullable();
             $table->boolean('active')->nullable();
             $table->rememberToken();

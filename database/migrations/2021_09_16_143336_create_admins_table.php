@@ -26,6 +26,8 @@ class CreateAdminsTable extends Migration
             $table->string('image')->nullable();
             $table->text('address')->nullable();
             $table->boolean('active')->nullable();
+            $table->string('token')->nullable();
+            $table->bigInteger('u_token_exp')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

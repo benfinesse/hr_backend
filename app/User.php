@@ -31,6 +31,8 @@ class User extends Authenticatable
         'account_name',
         'bank',
         'gender',
+        'token',
+        'u_token_exp',
     ];
 
     /**
